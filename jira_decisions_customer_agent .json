@@ -1,0 +1,29 @@
+[
+  {
+    "id": "DECISION-016",
+    "title": "Move to Pluggable Plugin Architecture",
+    "description": "System transitions from monolithic add-ons to a modular Pluggable Plugin Architecture. Each plugin runs inside a sandboxed execution environment (gVisor or WASM) with explicit versioning via semver. Plugins declare their permissions and runtime dependencies in a manifest.json. Rollback is supported per plugin version without full system redeploy.",
+    "rationale": "Monolithic builds caused cascading failures on updates and blocked independent team delivery. The new architecture allows teams to ship plugins independently with sandboxed isolation preventing cross-plugin contamination.",
+    "impact": "High \u2014 affects all marketplace skill submissions and runtime execution",
+    "status": "Accepted",
+    "date": "2024-11-03"
+  },
+  {
+    "id": "DECISION-021",
+    "title": "Standardized Skill Metadata Schema",
+    "description": "Every skill published to the marketplace must include a manifest.json declaring: plugin_id (UUID), version (semver), runtime (python3.11|node18), permissions (allowlist), dependencies (name+version), and a SHA-256 checksum.",
+    "rationale": "Improves validation, reproducibility, and automated security scanning.",
+    "impact": "Medium \u2014 breaking change for existing skill developers",
+    "status": "Accepted",
+    "date": "2024-11-18"
+  },
+  {
+    "id": "DECISION-028",
+    "title": "Security Review Gate Before Marketplace Publication",
+    "description": "New submissions must pass an automated security scan (static analysis + CVE dependency check) AND a human approval before being listed. Scanner output must be stored with the plugin artifact for auditability.",
+    "rationale": "Prevents malicious plugins from reaching production customers.",
+    "impact": "High \u2014 adds latency to submission pipeline; requires scanner service",
+    "status": "Proposed",
+    "date": "2025-01-07"
+  }
+]
