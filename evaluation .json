@@ -1,0 +1,25 @@
+{
+  "feature_request": "Implement an automated security scanner for new skill submissions.",
+  "hot_query_seconds": 12.61,
+  "ragas_metrics": {
+    "faithfulness": 0.0,
+    "precision": 0.0,
+    "recall": 0.6429,
+    "fpr_composite": 0.2143,
+    "pass": false,
+    "faithful_claims": 0,
+    "total_claims": 0,
+    "recalled_kws": 9,
+    "total_kws": 14
+  },
+  "retrieved_chunks": {
+    "code": [
+      "CODE-003",
+      "CODE-006"
+    ],
+    "decision": [
+      "DECISION-028",
+      "DECISION-021"
+    ]
+  }
+}
